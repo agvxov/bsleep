@@ -4,8 +4,8 @@
 #define MAX_MID_W FONT_WIDTH*8
 
 const char** HELP_MSG[] = {
-	(char const *[]){"Stop [j]", "Reset [h]", "End [l]", "Abort [u]", NULL},
-	(char const *[]){"Start [k]", "Reset [h]", "End [l]", "Abort [u]", NULL}
+	(char const *[]){"Start [k]", "Reset [h]", "End [l]", "Abort [u]", NULL},
+	(char const *[]){"Stop [j]", "Reset [h]", "End [l]", "Abort [u]", NULL}
 };
 enum color_pairs{
 	COLOR_PAIR_STDSCR = 1,
