@@ -4,7 +4,7 @@
 #define FG			COLOR_WHITE
 #define BG			-1
 #define BORDER_FG	COLOR_WHITE
-#define BORDER_BG	COLOR_
+#define BORDER_BG	COLOR_BLUE
 #define COUNTER_FG	COLOR_GREEN
 #define COUNTER_BG	-1
 #define HELP_FG		COLOR_WHITE
