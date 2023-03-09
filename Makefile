@@ -8,3 +8,9 @@ OUTPUT:=bsleep
 
 main:
 	${COMP} src/main.cpp -o ${OUTPUT}
+
+install: main
+	cp ${OUTPUT} /usr/bin
+
+uninstall:
+	rm /usr/bin/${OUTPUT}
