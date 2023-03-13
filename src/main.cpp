@@ -44,6 +44,10 @@ auto quitreq_handler = [](int sig_){
 	sig = sig_;
 	running = false;
 };
+auto abortreq_handler = [](int sig_){
+	execve_args = NULL;
+	quitreq_handler(sig_);
+};
 
 signed main(int argc, char* argv[]){
 	opts(argc, argv);
@@ -111,9 +115,9 @@ void opts(int argc, char* argv[]){
 bool init(){
 	// ### Signals ###
 	signal(SIGWINCH, sigwinch_handler);
-	signal(SIGINT, quitreq_handler);
-	signal(SIGQUIT, quitreq_handler);
-	signal(SIGSEGV, quitreq_handler);
+	signal(SIGINT, abortreq_handler);
+	signal(SIGQUIT, abortreq_handler);
+	signal(SIGSEGV, abortreq_handler);
 
 	// ### Ncurses ###
 	if(not tui_init()){ return false; }
@@ -155,7 +159,7 @@ void input(const char &i){
 			break;
 		case 'u':
 			execve_args = NULL;
-			quitreq_handler(0);
+			abortreq_handler(0);
 			break;
 	}
 }
