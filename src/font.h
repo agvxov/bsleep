@@ -75,8 +75,8 @@ char* to_banner(const char* const input){
 	const size_t ret_size = line_size*FONT_HEIGHT;
 	char* ret = (char*)malloc(ret_size);
 
-	for(int i = 0; i < FONT_HEIGHT; i++){
-		for(int h = 0; h < input_len; h++){
+	for(size_t i = 0; i < FONT_HEIGHT; i++){
+		for(size_t h = 0; h < input_len; h++){
 			memcpy(ret + FONT_WIDTH*h + line_size*i,
 					font[font_hash(input[h])]+(i*FONT_WIDTH),
 					FONT_WIDTH

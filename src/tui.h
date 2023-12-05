@@ -46,6 +46,7 @@ bool tui_init(){
 }
 
 void sigwinch_handler(int sig){
+	(void)sig;
 	do_redraw = true;
 }
 
