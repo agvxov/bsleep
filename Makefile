@@ -1,8 +1,13 @@
 CXX:=g++
-CFLAGS:=-O0 -ggdb -std=c++17
 LDLIBS:=$$(pkg-config --libs ncurses)
+CXXFLAGS += -std=c++20
 LDFLAGS:=
-COMP:=$(CXX) $(CFLAGS) $(LDFLAGS) $(LDLIBS)
+
+ifeq (${DEBUG}, 1)
+  CXXFLAGS += -O0 -ggdb -Wall -Wextra -Wpedantic
+endif
+
+COMP:=${CXX} ${CXXFLAGS} ${LDFLAGS} ${LDLIBS}
 
 OUTPUT:=bsleep
 
