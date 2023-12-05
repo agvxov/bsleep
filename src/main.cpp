@@ -36,6 +36,7 @@ bool init();
 void input(const char &i);
 void print_time(time_t t);
 [[ noreturn ]] void quit(int sig);
+
 inline void tstart(){
 	start_time = time(NULL);
 	end_time = start_time + oridiff;
