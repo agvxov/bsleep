@@ -128,8 +128,13 @@ bool init(){
 
 	return true;
 }
+
 [[ noreturn ]] void quit(int sig){
 	endwin();
+
+	const char BELL = '\a';
+	fputc(BELL, stderr);
+
 	if(execve_args){
 		execvpe(execve_args[0], execve_args, NULL);
 	}
